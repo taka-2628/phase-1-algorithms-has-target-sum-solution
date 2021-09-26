@@ -1,20 +1,3 @@
-/* SOLUTION 1 - time complexity: O(n²) / space complexity: O(n)
-function hasTargetSum(array, target) {
-  for (let i = 0; i < array.length; i++) {
-    // n steps (depending on the length of the input array)
-    const complement = target - array[i];
-    // n * n steps (nested loop)
-    for (let j = i + 1; j < array.length; j++){
-      if (array[j] === complement){
-        return true;
-      }
-    }
-  }
-  // 1 step
-  return false;
-}
-*/
-
 function hasTargetSum(array, target) {
   // create an object to keep track of all the numbers we've seen
   const seenNumbers = {};
@@ -28,10 +11,14 @@ function hasTargetSum(array, target) {
     if (seenNumbers[complement]) return true;
     // save the current number as the key on our object so we can check it later against other numbers
     seenNumbers[number] = true;
+    console.log(seenNumbers)
   }
   // if we reach the end of the array, return false
   return false;
 }
+
+hasTargetSum([3, 8, 12, 4, 11, 7], 10)
+
 
 /* 
   Write the Big O time complexity of your function here
@@ -45,6 +32,7 @@ function hasTargetSum(array, target) {
   Add written explanation of your solution here
 */
 
+/*
 // You can run `node index.js` to view these console logs
 if (require.main === module) {
   // add your own custom tests in here
@@ -63,3 +51,4 @@ if (require.main === module) {
 }
 
 module.exports = hasTargetSum;
+*/
