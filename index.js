@@ -1,17 +1,16 @@
 //SOLUTION 1 - time complexity: O(n²) / space complexity: O(n)
 function hasTargetSum(array, target) {
-  // iterate over the array of numbers
   for (let i = 0; i < array.length; i++) {
-    // for the current number, identify a complementary number that adds to target
+    // n steps (depending on the length of the input array)
     const complement = target - array[i];
-    // iterate over the remaining numbers in the array
+    // n * n steps (nested loop)
     for (let j = i + 1; j < array.length; j++){
       if (array[j] === complement){
         return true;
       }
     }
   }
-  // if addition of any of two numbers in the array is not === target, return false
+  // 1 step
   return false;
 }
 
