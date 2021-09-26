@@ -1,6 +1,20 @@
+//SOLUTION 1 - time complexity: O(n²) / space complexity: O(n)
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  // iterate over the array of numbers
+  for (let i = 0; i < array.length; i++) {
+    // for the current number, identify a complementary number that adds to target
+    const complement = target - array[i];
+    // iterate over the remaining numbers in the array
+    for (let j = i + 1; j < array.length; j++){
+      if (array[j] === complement){
+        return true;
+      }
+    }
+  }
+  // if addition of any of two numbers in the array is not === target, return false
+  return false;
 }
+
 
 /* 
   Write the Big O time complexity of your function here
